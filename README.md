@@ -1,1 +1,1 @@
-# CSC1004-Java-Java-Movie-Management-System
+# CSC1004-JAVA
