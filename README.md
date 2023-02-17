@@ -1,1 +1,1 @@
-# CSC1004-JAVA
+# CSC1004-Java
