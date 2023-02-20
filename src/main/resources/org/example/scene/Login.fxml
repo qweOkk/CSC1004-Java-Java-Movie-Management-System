@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.LoginController">
+   <children>
+      <Pane fx:id="Login_pane" cache="true" layoutX="169.0" layoutY="99.0" prefHeight="527.0" prefWidth="742.0" style="-fx-background-color: #3ab176;">
+         <children>
+            <Button fx:id="SignUp" alignment="CENTER" layoutX="417.0" layoutY="375.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="141.0" text="Sign Up">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <CheckBox fx:id="isAdmin" layoutX="284.0" layoutY="315.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="141.0" selected="true" text="Admin">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <TextField fx:id="UserField" layoutX="321.0" layoutY="149.0" prefHeight="47.0" prefWidth="252.0" text="qweokk" />
+            <PasswordField fx:id="passwordField" layoutX="321.0" layoutY="254.0" prefHeight="40.0" prefWidth="252.0" text="123" />
+            <Label fx:id="Password" layoutX="115.0" layoutY="251.0" text="password:">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="UsernameField" layoutX="113.0" layoutY="149.0" text="username:">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="ProjectName" layoutX="113.0" layoutY="72.0" text="Movie Management System">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="LoginBut" alignment="CENTER" layoutX="115.0" layoutY="374.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="47.0" prefWidth="252.0" text="Login">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="SignUp_pane" layoutX="305.0" prefHeight="568.0" prefWidth="421.0" style="-fx-background-color: #87CECB;" visible="false">
+         <children>
+            <Label layoutX="134.0" layoutY="25.0" prefHeight="67.0" prefWidth="123.0" text="Signup">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="101.0" prefHeight="48.0" prefWidth="113.0" text="Username">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="168.0" prefHeight="48.0" prefWidth="113.0" text="Password">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="300.0" prefHeight="48.0" prefWidth="113.0" text="Telephone">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="362.0" prefHeight="48.0" prefWidth="113.0" text="ID number">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="SignUpUserField" layoutX="142.0" layoutY="109.0" prefHeight="40.0" prefWidth="242.0" />
+            <TextField fx:id="TeleField" layoutX="135.0" layoutY="306.0" prefHeight="40.0" prefWidth="242.0" />
+            <TextField fx:id="ID_numberField" layoutX="135.0" layoutY="368.0" prefHeight="40.0" prefWidth="242.0" />
+            <PasswordField fx:id="SignUpPasswordField" layoutX="141.0" layoutY="174.0" prefHeight="40.0" prefWidth="242.0" />
+            <Button fx:id="back" layoutX="235.0" layoutY="446.0" mnemonicParsing="false" onAction="#Back_up" prefHeight="36.0" prefWidth="85.0" text="Back" />
+            <Button fx:id="SignUp" layoutX="72.0" layoutY="446.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="36.0" prefWidth="141.0" text="Sign up" />
+            <Label layoutX="21.0" layoutY="236.0" prefHeight="48.0" prefWidth="113.0" text="Age">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="AgeField" layoutX="141.0" layoutY="240.0" prefHeight="40.0" prefWidth="242.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

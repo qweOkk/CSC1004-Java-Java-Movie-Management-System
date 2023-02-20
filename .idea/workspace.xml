@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ec8fc1c-095a-441f-8e44-f2c253c91391" name="变更" comment="New version">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/CommonUserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/CommonUserView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +17,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="KEEP" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -42,6 +46,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/example/scene/AdminViewController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,6 +58,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectId" id="2LmJP2JlV1nzvKWQqWabA0LARQX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -67,7 +77,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/64703/.jdks/openjdk-19.0.1",
+    "last_opened_file_path": "C:/Users/64703/IdeaProjects/Java_newsSystem-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,7 +86,7 @@
     "project.structure.last.edited": "库",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -90,29 +100,47 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\target\classes\org\example\scene" />
+      <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\src\main\resources" />
       <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\.idea" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\target\classes\org\example\scene" />
+      <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\target\classes\org\example" />
       <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\src\main\java\org\example" />
       <recent name="C:\Users\64703\IdeaProjects\CSC1004-JAVA\src\Scene" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.scene" />
+      <recent name="org.example" />
+      <recent name="org.example.models" />
+    </key>
   </component>
-  <component name="RunManager" selected="应用程序.Start">
-    <configuration name="未命名" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+  <component name="RunManager" selected="应用程序.Main">
+    <configuration name="JdbcUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.utils.JdbcUtils" />
       <module name="CSC1004-JAVA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="CSC1004-JAVA" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.Scene.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,14 +149,13 @@
       </method>
     </configuration>
     <configuration name="Start" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.Start" />
       <module name="CSC1004-JAVA" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Program Files (x86)\javafx-sdk-19&quot; --add-modules javafx.controls,javafx.fxml,javafx.web " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.Scene.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,6 +164,13 @@
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
+      <module name="CSC1004-JAVA" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.example.Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="CSC1004-JAVA" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,10 +191,16 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.未命名" />
-      <item itemvalue="应用程序.未命名" />
+      <item itemvalue="应用程序.org.example.Main" />
       <item itemvalue="应用程序.Start" />
       <item itemvalue="应用程序.Main" />
+      <item itemvalue="应用程序.JdbcUtils" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.JdbcUtils" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -180,7 +220,27 @@
       <workItem from="1676798918070" duration="7249000" />
       <workItem from="1676808410217" duration="1646000" />
       <workItem from="1676811659904" duration="42000" />
-      <workItem from="1676811742052" duration="4898000" />
+      <workItem from="1676811742052" duration="8373000" />
+      <workItem from="1676899428407" duration="2916000" />
+      <workItem from="1676904326322" duration="3398000" />
+      <workItem from="1676907744258" duration="147000" />
+      <workItem from="1677028729992" duration="7797000" />
+      <workItem from="1677765768967" duration="6587000" />
+      <workItem from="1678363221569" duration="715000" />
+      <workItem from="1678810618249" duration="906000" />
+      <workItem from="1679551815049" duration="4702000" />
+      <workItem from="1679831452811" duration="4434000" />
+      <workItem from="1679982244961" duration="810000" />
+      <workItem from="1679989207628" duration="15724000" />
+      <workItem from="1680014561419" duration="2673000" />
+      <workItem from="1680054529484" duration="3706000" />
+      <workItem from="1680087298272" duration="333000" />
+      <workItem from="1680155692226" duration="2307000" />
+      <workItem from="1680161443999" duration="602000" />
+      <workItem from="1680268546266" duration="2507000" />
+      <workItem from="1680444928972" duration="3132000" />
+      <workItem from="1680581823949" duration="2344000" />
+      <workItem from="1680584184235" duration="7110000" />
     </task>
     <task id="LOCAL-00001" summary="git status">
       <created>1676598279735</created>
@@ -203,7 +263,35 @@
       <option name="project" value="LOCAL" />
       <updated>1676641911824</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="New version">
+      <created>1676819153699</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676819153699</updated>
+    </task>
+    <task id="LOCAL-00005" summary="New version">
+      <created>1676907792369</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676907792369</updated>
+    </task>
+    <task id="LOCAL-00006" summary="New version">
+      <created>1677071427924</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677071427924</updated>
+    </task>
+    <task id="LOCAL-00007" summary="New version">
+      <created>1680014053317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680014053317</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,12 +303,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="master(1)" />
                       </list>
                     </value>
                   </entry>
@@ -244,6 +337,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="3" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

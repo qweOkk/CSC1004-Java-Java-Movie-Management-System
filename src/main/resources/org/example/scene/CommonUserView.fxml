@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.CommonUserViewController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane fx:id="personInfoPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <center>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="426.0" prefWidth="161.0" spacing="20.0">
+                           <children>
+                              <Label text="用户名">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="密码">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label text="真实姓名">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label text="身份证号">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label text="联系电话">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label text="联系地址">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_RIGHT" prefHeight="676.0" prefWidth="256.0" spacing="18.0">
+                           <children>
+                              <TextField fx:id="usernameField" text="text">
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="passwordField" />
+                              <TextField fx:id="trueNameField" />
+                              <TextField fx:id="sidField" />
+                              <TextField fx:id="telField" />
+                              <TextField fx:id="addrField" />
+                              <Button fx:id="changeButton" mnemonicParsing="false" onAction="#handleChange" text="修改" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+            <BorderPane fx:id="subscriptedPane" prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <BorderPane fx:id="moviePane" prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <HBox prefHeight="801.0" prefWidth="952.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" prefHeight="632.0" prefWidth="449.0">
+                                 <children>
+                                    <StackPane prefHeight="547.0" prefWidth="504.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="movieCover" fitHeight="516.0" fitWidth="376.0" pickOnBounds="true" />
+                                          <Rectangle fx:id="imageBorder" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="536.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="30.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
+                              <StackPane prefHeight="632.0" prefWidth="392.0">
+                                 <children>
+                                    <GridPane prefHeight="628.0" prefWidth="374.0">
+                                       <children>
+                                          <Label text="No.:" />
+                                          <Label text="Name:" GridPane.rowIndex="1" />
+                                          <Label prefHeight="15.0" prefWidth="118.0" text="Director:" GridPane.rowIndex="2" />
+                                          <Label prefHeight="24.0" prefWidth="138.0" text="Actor&amp;Actress:" GridPane.rowIndex="3" />
+                                          <Label text="Contents:" GridPane.rowIndex="5" />
+                                          <Label text="Type:" GridPane.rowIndex="4" />
+                                          <Label text="Rating:" GridPane.rowIndex="6" />
+                                          <Label text="Comments" GridPane.rowIndex="7" />
+                                          <TextArea fx:id="movieComArea" prefHeight="216.0" prefWidth="264.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Label fx:id="movieIdLabel" text="Label" GridPane.columnIndex="1" />
+                                          <Label fx:id="movieNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="movieDirectorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="movieActorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label fx:id="movieContentLabel" prefHeight="35.0" prefWidth="50.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="movieTypeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="128.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="264.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="100.0" minHeight="6.0" prefHeight="46.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="147.0" minHeight="2.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="354.0" minHeight="6.0" prefHeight="43.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="44.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="431.0" minHeight="10.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="116.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="33.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="197.0" valignment="TOP" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <StackPane.margin>
+                                          <Insets top="60.0" />
+                                       </StackPane.margin>
+                                    </GridPane>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="100.0" />
+                                 </HBox.margin>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </center>
+               <left>
+                  <TableView fx:id="movieTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <columns>
+                        <TableColumn fx:id="movieIdColumn" prefWidth="102.0" text="No." />
+                        <TableColumn fx:id="movieNameColumn" prefWidth="96.0" text="Name" />
+                     </columns>
+                  </TableView>
+               </left>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="61.0" prefWidth="1243.0" styleClass="topBar" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" layoutX="544.0" layoutY="15.0" prefHeight="32.0" prefWidth="671.0" spacing="14.0">
+               <children>
+                  <Label fx:id="userNameLabel" text="Username">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="toMovieButton" onMouseClicked="#handleToMovie" text="Movies">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="toCommonUserButton" onMouseClicked="#handleToCommonUser" text="Personal">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="logOutButton" onMouseClicked="#handleLogout" text="Exit">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="60.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label layoutX="39.0" layoutY="15.0" prefHeight="38.0" prefWidth="260.0" text="Movie Management">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
