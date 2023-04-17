@@ -1,144 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.CommonUserViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.CommonUserViewController">
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane fx:id="personInfoPane" prefHeight="200.0" prefWidth="200.0" visible="false">
-               <center>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="426.0" prefWidth="161.0" spacing="20.0">
-                           <children>
-                              <Label text="用户名">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="40.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="密码">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                              <Label text="真实姓名">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                              <Label text="身份证号">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                              <Label text="联系电话">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                              <Label text="联系地址">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_RIGHT" prefHeight="676.0" prefWidth="256.0" spacing="18.0">
-                           <children>
-                              <TextField fx:id="usernameField" text="text">
-                                 <VBox.margin>
-                                    <Insets top="40.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="passwordField" />
-                              <TextField fx:id="trueNameField" />
-                              <TextField fx:id="sidField" />
-                              <TextField fx:id="telField" />
-                              <TextField fx:id="addrField" />
-                              <Button fx:id="changeButton" mnemonicParsing="false" onAction="#handleChange" text="修改" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </center>
-            </BorderPane>
             <BorderPane fx:id="subscriptedPane" prefHeight="200.0" prefWidth="200.0" visible="false" />
             <BorderPane fx:id="moviePane" prefHeight="200.0" prefWidth="200.0">
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <center>
-                        <HBox prefHeight="801.0" prefWidth="952.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
+                        <HBox prefHeight="709.0" prefWidth="952.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
                            <children>
                               <VBox alignment="TOP_RIGHT" prefHeight="632.0" prefWidth="449.0">
                                  <children>
-                                    <StackPane prefHeight="547.0" prefWidth="504.0" VBox.vgrow="ALWAYS">
+                                    <StackPane prefHeight="678.0" prefWidth="449.0">
                                        <children>
-                                          <ImageView fx:id="movieCover" fitHeight="516.0" fitWidth="376.0" pickOnBounds="true" />
                                           <Rectangle fx:id="imageBorder" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="536.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
+                                          <ImageView fx:id="movieCover" fitHeight="516.0" fitWidth="376.0" pickOnBounds="true" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets bottom="10.0" top="30.0" />
+                                          <Insets top="65.0" />
                                        </VBox.margin>
                                     </StackPane>
-                                 </children>
-                              </VBox>
-                              <StackPane prefHeight="632.0" prefWidth="392.0">
-                                 <children>
-                                    <GridPane prefHeight="628.0" prefWidth="374.0">
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="No.:" />
-                                          <Label text="Name:" GridPane.rowIndex="1" />
-                                          <Label prefHeight="15.0" prefWidth="118.0" text="Director:" GridPane.rowIndex="2" />
-                                          <Label prefHeight="24.0" prefWidth="138.0" text="Actor&amp;Actress:" GridPane.rowIndex="3" />
-                                          <Label text="Contents:" GridPane.rowIndex="5" />
-                                          <Label text="Type:" GridPane.rowIndex="4" />
-                                          <Label text="Rating:" GridPane.rowIndex="6" />
-                                          <Label text="Comments" GridPane.rowIndex="7" />
-                                          <TextArea fx:id="movieComArea" prefHeight="216.0" prefWidth="264.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                          <Label fx:id="movieIdLabel" text="Label" GridPane.columnIndex="1" />
-                                          <Label fx:id="movieNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Label fx:id="movieDirectorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label fx:id="movieActorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Label fx:id="movieContentLabel" prefHeight="35.0" prefWidth="50.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <Label fx:id="movieTypeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Rating fx:id="movieRating" layoutX="23.0" layoutY="15.0" prefHeight="29.0" prefWidth="176.0" rating="5.0" />
+                                          <Button layoutX="340.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleRate" prefHeight="28.0" prefWidth="78.0" text="Rate">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="60.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Pane prefHeight="531.0" prefWidth="499.0">
+                                 <children>
+                                    <GridPane prefHeight="339.0" prefWidth="503.0">
+                                       <children>
+                                          <Label prefHeight="61.0" prefWidth="46.0" text="No.:">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="47.0" prefWidth="72.0" text="Name:" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="73.0" prefWidth="122.0" text="Director:" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="66.0" prefWidth="149.0" text="Actor&amp;Actress:" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="34.0" prefWidth="95.0" text="Contents:" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="69.0" prefWidth="76.0" text="Type:" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="movieIdLabel" prefHeight="109.0" prefWidth="406.0" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="movieNameLabel" prefHeight="66.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="movieDirectorLabel" prefHeight="61.0" prefWidth="294.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="movieActorLabel" prefHeight="52.0" prefWidth="291.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="movieTypeLabel" prefHeight="52.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="movieContentLabel" alignment="TOP_LEFT" prefHeight="222.0" prefWidth="274.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="128.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="264.0" />
                                        </columnConstraints>
                                        <rowConstraints>
-                                          <RowConstraints maxHeight="100.0" minHeight="6.0" prefHeight="46.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" minHeight="6.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
                                           <RowConstraints maxHeight="147.0" minHeight="2.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="354.0" minHeight="6.0" prefHeight="43.0" valignment="TOP" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="44.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="354.0" minHeight="6.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
                                           <RowConstraints maxHeight="431.0" minHeight="10.0" prefHeight="45.0" valignment="TOP" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="116.0" valignment="TOP" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="33.0" valignment="TOP" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="197.0" valignment="TOP" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="441.0" minHeight="0.0" prefHeight="182.66665649414062" valignment="TOP" vgrow="SOMETIMES" />
                                        </rowConstraints>
-                                       <StackPane.margin>
-                                          <Insets top="60.0" />
-                                       </StackPane.margin>
                                     </GridPane>
+                                    <TextArea fx:id="movieComArea" layoutX="1.0" layoutY="339.0" prefHeight="202.0" prefWidth="488.0" />
+                                    <Button layoutX="374.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleComment" prefHeight="36.0" prefWidth="111.0" text="Comment">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                                  <HBox.margin>
-                                    <Insets bottom="100.0" />
+                                    <Insets top="65.0" />
                                  </HBox.margin>
-                              </StackPane>
+                              </Pane>
                            </children>
                         </HBox>
                      </center>
@@ -156,6 +164,72 @@
                   </TableView>
                </left>
             </BorderPane>
+            <Pane fx:id="personInfoPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="729.0" prefWidth="1152.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="574.0" prefWidth="154.0" spacing="20.0">
+                           <children>
+                              <Label prefHeight="38.0" prefWidth="105.0" text="Username">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="38.0" prefWidth="100.0" text="Password">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="38.0" prefWidth="50.0" text="Age">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="38.0" prefWidth="110.0" text="Telephone">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="38.0" prefWidth="82.0" text="Address">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="38.0" prefWidth="116.0" text="ID_number">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_RIGHT" prefHeight="660.0" prefWidth="256.0" spacing="20.0">
+                           <children>
+                              <TextField fx:id="usernameField" prefHeight="38.0" prefWidth="256.0" text="text">
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="passwordField" prefHeight="38.0" prefWidth="256.0" />
+                              <TextField fx:id="AgeField" prefHeight="38.0" prefWidth="256.0" />
+                              <TextField fx:id="telField" prefHeight="38.0" prefWidth="256.0" />
+                              <TextField fx:id="addrField" prefHeight="38.0" prefWidth="256.0" />
+                              <TextField fx:id="sidField" prefHeight="38.0" prefWidth="256.0" />
+                              <Button fx:id="changeButton" mnemonicParsing="false" onAction="#handleChange" prefHeight="38.0" prefWidth="92.0" text="Change">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
          </children>
       </StackPane>
    </center>

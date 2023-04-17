@@ -2,7 +2,6 @@ package org.example.models;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
-
 import java.io.Serializable;
 
 public class Order implements Serializable {
@@ -11,8 +10,8 @@ public class Order implements Serializable {
     private StringProperty userName;
     private IntegerProperty mid;
     private StringProperty movieName;
-    private StringProperty director;
-    private StringProperty actor;
+    private  IntegerProperty age;
+    private StringProperty comment;
 
     public Order() {
     }
@@ -76,29 +75,29 @@ public class Order implements Serializable {
     public void setMid(int mid) {
         this.mid.set(mid);
     }
-
-    public String getDirector() {
-        return director.get();
+    public Integer getAge() {
+        return age.get();
     }
 
-    public StringProperty directorProperty() {
-        return director;
+    public IntegerProperty ageProperty() {
+        return age;
     }
 
-    public void setDirector(String director) {
-        this.director.set(director);
+
+    public void setAge(Integer age) {
+        this.age.set(age);
     }
 
-    public String getActor() {
-        return actor.get();
+    public String getComment() {
+        return comment.get();
     }
 
-    public StringProperty actorProperty() {
-        return actor;
+    public StringProperty commentProperty() {
+        return comment;
     }
 
-    public void setActor(String actor) {
-        this.actor.set(actor);
+    public void setComment(String comment) {
+        this.comment.set(comment);
     }
 
 
@@ -109,9 +108,9 @@ public class Order implements Serializable {
                 ", uid=" + uid +
                 ", userName=" + userName +
                 ", mid=" + mid +
+                ", age=" + age +
                 ", movieName=" + movieName +
-                ", director=" + director +
-                ", actor=" + actor +
+                ", comment=" + comment +
                 '}';
     }
 }

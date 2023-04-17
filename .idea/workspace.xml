@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ec8fc1c-095a-441f-8e44-f2c253c91391" name="变更" comment="New version">
+    <list default="true" id="2ec8fc1c-095a-441f-8e44-f2c253c91391" name="变更" comment="New">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Scene/AdminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/AdminViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Scene/CommonUserViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/CommonUserViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/AdminView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/AdminView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/CommonUserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/CommonUserView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/loginCover.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/loginCover.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -73,6 +84,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -83,10 +98,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs.mocha.mocha_node_package_dir": "",
-    "project.structure.last.edited": "库",
+    "project.structure.last.edited": "工件",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -241,6 +256,9 @@
       <workItem from="1680444928972" duration="3132000" />
       <workItem from="1680581823949" duration="2344000" />
       <workItem from="1680584184235" duration="7110000" />
+      <workItem from="1681650478435" duration="4210000" />
+      <workItem from="1681655524711" duration="4460000" />
+      <workItem from="1681693867085" duration="8952000" />
     </task>
     <task id="LOCAL-00001" summary="git status">
       <created>1676598279735</created>
@@ -291,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680014053317</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="New">
+      <created>1681573714525</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681573714525</updated>
+    </task>
+    <task id="LOCAL-00009" summary="New">
+      <created>1681573752163</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681573752163</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +361,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="git status" />
     <MESSAGE value="New version" />
-    <option name="LAST_COMMIT_MESSAGE" value="New version" />
+    <MESSAGE value="New" />
+    <option name="LAST_COMMIT_MESSAGE" value="New" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -344,5 +377,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

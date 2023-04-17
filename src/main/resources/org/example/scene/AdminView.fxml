@@ -10,12 +10,11 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.AdminViewController">
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane fx:id="moviePane" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <BorderPane fx:id="moviePane" prefHeight="200.0" prefWidth="200.0">
                <left>
                   <TableView fx:id="movieTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <columns>
@@ -105,7 +104,7 @@
                      </center>
                   </BorderPane>
                </center></BorderPane>
-            <BorderPane fx:id="commonUserPane" prefHeight="200.0" prefWidth="200.0">
+            <BorderPane fx:id="commonUserPane" prefHeight="200.0" prefWidth="200.0" visible="false">
                <left>
                   <TableView fx:id="commonUserTableView" prefHeight="677.0" prefWidth="318.0" BorderPane.alignment="CENTER">
                     <columns>

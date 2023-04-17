@@ -368,6 +368,7 @@ public class AdminViewController extends Application{
             movieIntroArea.setText(solo.getIntro());
             //System.out.println(solo.getCoverPath());
             File newFile = new File("src/main/resources/org/example/scene/images/" + solo.getCoverPath());
+            //System.out.println(newFile.getAbsoluteFile().toURI());
 
             movieCover.setImage(new Image(newFile.getAbsoluteFile().toURI().toString()));
             UIAdjistUtils.adjustImageBorder(movieCover, imageBorder);
