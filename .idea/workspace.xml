@@ -4,104 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ec8fc1c-095a-441f-8e44-f2c253c91391" name="变更" comment="New">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/Default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/ev05b15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/iml.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/20230509211444.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/20230509211456.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_4_13_20_05____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_4_13_20_05____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_4_13_20_23____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_4_13_20_23____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_4_13_20_37____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_4_13_20_37____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_5_9_20_37____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/___.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/20230509101546.png" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/20230509101546.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/20230509102346.png" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/20230509102346.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Java-movie-management.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Java-movie-management.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Mewtwo_Strikes_Back_Evolution_poster.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Mewtwo_Strikes_Back_Evolution_poster.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Report4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Report4.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Report5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Report5.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Titanic.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/Titanic.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/assignment2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/assignment2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/controlsfx-8.40.18.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/controlsfx-8.40.18.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/ev05b07a2b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/ev05b07a2b.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/ev10l1002b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/ev10l1002b.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/im0815_.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/im0815_.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/im090904bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/im090904bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/imc.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/imc.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/interstellar-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/interstellar-4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/preview.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/preview.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/quiz1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/quiz1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/杀马特.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/杀马特.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/20230509101546.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/20230509102346.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/Java-movie-management.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/Mewtwo_Strikes_Back_Evolution_poster.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/Report4.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/Report5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/Titanic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/assignment2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/controlsfx-8.40.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/ev05b07a2b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/ev10l1002b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/im0815_.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/im090904bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/imc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/interstellar-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/preview.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/quiz1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/杀马特.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_4_13_20_05_取消提交了变更_[变更]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_4_13_20_05_取消提交了变更_[变更]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_4_13_20_23_取消提交了变更_[变更]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_4_13_20_23_取消提交了变更_[变更]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_4_13_20_37_取消提交了变更_[变更]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_4_13_20_37_取消提交了变更_[变更]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_5_9_20_37_取消提交了变更_[变更]/Report4.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_5_9_20_37_取消提交了变更_[变更]/shelved.patch" beforeDir="false" />
+    <list default="true" id="2ec8fc1c-095a-441f-8e44-f2c253c91391" name="变更" comment="New version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report/Report5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Report/Report5.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Scene/AdminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/AdminViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Scene/CommonUserViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/CommonUserViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Scene/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Scene/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Start.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/CommonUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/CommonUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/MovieClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/MovieClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/DialogUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/DialogUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ImageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/InputChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/InputChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/UIAdjistUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/UIAdjistUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/moviemanagement.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/moviemanagement.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/AdminView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/AdminView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/CommonUserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/CommonUserView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/scene/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/Harry.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/Interstellar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/Mewtwo_Strikes_Back_Evolution_poster.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/Titanic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/assignment2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/ev05b07a2b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/ev10l1002b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/im090904bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/imc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/preview.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/quiz1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/20230509101546.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/20230509102346.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/Search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/confirm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/filter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/good.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/systemUse/tips.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/scene/images/杀马特.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/Java-movie-management.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/video/Java-movie-management.mp4" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +253,7 @@
       <workItem from="1681655524711" duration="4460000" />
       <workItem from="1681693867085" duration="8952000" />
       <workItem from="1683638927757" duration="60000" />
-      <workItem from="1683639027351" duration="437000" />
+      <workItem from="1683639027351" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="git status">
       <created>1676598279735</created>
@@ -414,7 +318,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681573752163</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="New version">
+      <created>1683639506101</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683639506101</updated>
+    </task>
+    <task id="LOCAL-00011" summary="New version">
+      <created>1683639535678</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683639535678</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,9 +369,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="git status" />
-    <MESSAGE value="New version" />
     <MESSAGE value="New" />
-    <option name="LAST_COMMIT_MESSAGE" value="New" />
+    <MESSAGE value="New version" />
+    <option name="LAST_COMMIT_MESSAGE" value="New version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
