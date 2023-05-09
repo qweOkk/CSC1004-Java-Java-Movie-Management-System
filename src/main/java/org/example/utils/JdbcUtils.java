@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 public class JdbcUtils {
     private static final String USER_NAME = "root";
-    private static final String PASSWORD ="qiujunwen123";
+    private static final String PASSWORD =" ";
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/moviemanagement?useSSL=false&characterEncoding=utf-8&serverTimezone=UTC";
