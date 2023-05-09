@@ -23,7 +23,7 @@ public class JdbcUtils {
     public JdbcUtils() {
         try {
             Class.forName(DRIVER);
-            System.out.println("数据库连接成功");
+            System.out.println("Connect with the database successfully.");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,9 +38,11 @@ public class JdbcUtils {
         }
         return connection;
     }
-
+    /**
+     * Adding, deleting, and modifying database data
+     */
     public boolean updateByPreparedStatement(String sql, List<Object> params) throws SQLException {
-        int resultLineNumber = -1; // 如果行号小于零说明更新失败
+        int resultLineNumber = -1;
         pstmt = connection.prepareStatement(sql);
         if (params != null && !params.isEmpty()) {
             for (int i = 0; i < params.size(); i++) {
@@ -52,22 +54,18 @@ public class JdbcUtils {
     }
 
     /**
-     * 查询单条数据库数据，并打包成字典的形式返回
-     * @param sql 待填充参数的数据库查询语句
-     * @param params 准备填充的参数列表
-     * @throws SQLException 数据库操作异常
-     * @return 单个数据库信息的字典
+     * Query a single database data and package it into a dictionary to return it
      */
     public Map<String, Object> findSimpleResult(String sql, List<Object> params) throws SQLException {
         Map<String, Object> map = new HashMap<>();
         pstmt = connection.prepareStatement(sql);
         if (params != null && !params.isEmpty()) {
             for (int i = 0; i < params.size(); i++) {
-                pstmt.setObject(i+1, params.get(i)); //这里要处理序号问题，所以第一个参数是i+1
+                pstmt.setObject(i+1, params.get(i));
             }
         }
         resultSet = pstmt.executeQuery();
-        ResultSetMetaData metaData = resultSet.getMetaData(); // 获取元数据,目的是获得行号
+        ResultSetMetaData metaData = resultSet.getMetaData();
         int col = metaData.getColumnCount();
         while (resultSet.next()) {
             for (int i = 0; i < col; i++) {
@@ -83,11 +81,7 @@ public class JdbcUtils {
     }
 
     /**
-     * 查询多条数据库数据，打包成字典，并放入列表中返回
-     * @param sql 待填充参数的数据库查询语句
-     * @param params 准备填充的参数列表
-     * @throws SQLException 数据库操作异常
-     * @return 装有多组数据map的list
+     * Query multiple database data, package them into a dictionary, and place them in a list to return
      */
     public List<Map<String, Object>> findModeResult(String sql, List<Object> params) throws SQLException {
         List<Map<String, Object>> maps = new ArrayList<>();
@@ -116,12 +110,7 @@ public class JdbcUtils {
     }
 
     /**
-     * 通过反射机制查询单条数据库数据，处理完绑定后打包，并直接返回包装好的对象
-     * @param sql 待填充参数的数据库查询语句
-     * @param params 带填充的参数列表
-     * @param cls 要打包的对象的类型
-     * @throws Exception 返回一个异常
-     * @return 直接返回包装好的数据
+     * Query a single database data through a reflection mechanism, package it after processing the binding, and directly return the packaged object
      */
     public <T> T findSimpleProResult(String sql, List<Object> params, Class<T> cls) throws Exception {
         T resultObject = null;
@@ -135,10 +124,7 @@ public class JdbcUtils {
         ResultSetMetaData metaData = resultSet.getMetaData();
         int col = metaData.getColumnCount();
         while (resultSet.next()) {
-
-            resultObject = cls.newInstance(); // 创建一个该类的一个新实例
-
-            // 对每项数据依次处理
+            resultObject = cls.newInstance();
             for (int i = 0; i < col; i++) {
                 String colName = metaData.getColumnName(i+1);
                 Object colValue = resultSet.getObject(colName);
@@ -159,12 +145,7 @@ public class JdbcUtils {
     }
 
     /**
-     * 通过反射机制查询多条数据库数据，处理双向绑定并将对象封装好后填如list中返回
-     * @param sql 数据库查询语句
-     * @param params 数据库查询参数
-     * @param cls 要打包的对象的类型
-     * @throws Exception 返回一个异常
-     * @return 装有cls相应对象的列表
+     * Query multiple database data through reflection mechanism, handle bidirectional binding, encapsulate objects, and fill them in the list to return
      */
     public <T> List<T> findMoreProResult(String sql, List<Object> params, Class<T> cls) throws Exception {
         List<T> list = new ArrayList<>();
@@ -177,22 +158,14 @@ public class JdbcUtils {
 
         resultSet = pstmt.executeQuery();
         ResultSetMetaData metaData = resultSet.getMetaData();
-//        System.out.println(metaData);
+        //System.out.println(metaData);
         int col = metaData.getColumnCount();
         while (resultSet.next()) {
             T resultObject = cls.newInstance();
             for (int i = 0; i < col; i++) {
-                /*
-                 *==================================================
-                 *                 !!important!!
-                 *     这里用getColumnLabel才能显示修改后的姓名
-                 *     StackOverFlow大法好！！
-                 *     https://stackoverflow.com/questions/6732736/rs-getmetadata-getcolumnnamei-with-aliased-columns-on-mysql
-                 *==================================================
-                 */
                 String colName = metaData.getColumnLabel(i+1);
                 Object colValue = resultSet.getObject(colName);
-//                System.out.println(colName);
+                //System.out.println(colName);
                 Object newValue = null;
                 if (colValue == null) {
                     colValue = "";
@@ -211,12 +184,7 @@ public class JdbcUtils {
     }
 
     /**
-     * 通过反射机制查询单条数据库数据，并直接返回包装好的对象
-     * @param sql 待填充参数的数据库查询语句
-     * @param params 带填充的参数列表
-     * @param cls 要打包的对象的类型
-     * @throws Exception 返回一个异常
-     * @return 直接返回包装好的数据
+     * Query single database data through reflection mechanism and directly return packaged objects
      */
     public <T> T findSimpleRefResult(String sql, List<Object> params, Class<T> cls) throws Exception {
         T resultObject = null;
@@ -230,7 +198,7 @@ public class JdbcUtils {
         ResultSetMetaData metaData = resultSet.getMetaData();
         int col = metaData.getColumnCount();
         while (resultSet.next()) {
-            resultObject = cls.newInstance(); // 创建一个该类的一个新实例
+            resultObject = cls.newInstance();
             for (int i = 0; i < col; i++) {
                 String colName = metaData.getColumnName(i+1);
                 Object colValue = resultSet.getObject(colName);
@@ -245,44 +213,9 @@ public class JdbcUtils {
         return resultObject;
     }
 
-    /**
-     * 通过反射机制查询多条数据库数据，将对象封装好后填如list中，并返回
-     * @param sql 数据库查询语句
-     * @param params 数据库查询参数
-     * @param cls 要打包的对象的类型
-     * @throws Exception 返回一个异常
-     * @return 装有cls相应对象的列表
-     */
-    public <T> List<T> findMoreRefResult(String sql, List<Object> params, Class<T> cls) throws Exception {
-        List<T> list = new ArrayList<>();
-        pstmt = connection.prepareStatement(sql);
-        if (params != null && !params.isEmpty()) {
-            for (int i = 0; i < params.size(); i++) {
-                pstmt.setObject(i+1, params.get(i));
-            }
-        }
-        resultSet = pstmt.executeQuery();
-        ResultSetMetaData metaData = resultSet.getMetaData();
-        int col = metaData.getColumnCount();
-        while (resultSet.next()) {
-            T resultObject = cls.newInstance();
-            for (int i = 0; i < col; i++) {
-                String colName = metaData.getColumnName(i+1);
-                Object colValue = resultSet.getObject(colName);
-                if (colValue == null) {
-                    colValue = "";
-                }
-                Field field = cls.getDeclaredField(colName);
-                field.setAccessible(true);
-                field.set(resultObject, colValue);
-            }
-            list.add(resultObject);
-        }
-        return list;
-    }
 
     /**
-     * 释放数据库连接
+     * Release database connection
      */
     public void releaseConnection() {
         if (resultSet != null) {
@@ -295,15 +228,11 @@ public class JdbcUtils {
     }
 
     /**
-     * 测试函数
-     * @param args no args
-     * @throws SQLException 抛出数据库异常
+     * Test Function
      */
     public static void main(String[] args) throws SQLException {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
-
-        // 利用反射查询单条记录
         String sql = "select * from `admin` where username = ?";
         List<Object> params = new ArrayList<>();
         params.add("qweokk");

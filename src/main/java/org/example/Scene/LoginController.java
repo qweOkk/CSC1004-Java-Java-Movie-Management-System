@@ -68,6 +68,10 @@ public class LoginController {
     public Main getMainApp() {
         return mainApp;
     }
+
+    /**
+     * Login with Admin or commonuser.
+     */
     @FXML
     void LogIn() {
             System.out.println("The button has been clicked!");
@@ -132,13 +136,15 @@ public class LoginController {
                 mainApp.getPrimaryStage().setScene(new Scene(newView));
             } catch (Exception e) {
                 DialogUtils.tips(mainApp.getPrimaryStage(), e.getMessage());
-                System.out.println("出现了一些问题，请查看提示信息");
+                System.out.println("There is something wrong!");
 
             }
 
     }
 
-
+    /**
+     * Turn to Sign Up page.
+     */
     @FXML
     void signup() throws Exception{
         System.out.println("The SignUp button is clicked");
@@ -146,15 +152,20 @@ public class LoginController {
         Login_pane.setVisible(false);
 
     }
+    /**
+     * Back to Log In page.
+     */
     @FXML
     void Back_up()throws Exception {
         SignUp_pane.setVisible(false);
         Login_pane.setVisible(true);
     }
-
+    /**
+     * Sign Up for CommonUse.
+     */
     @FXML
     void Sign_up()throws Exception {
-       String errormessage = InputChecker.commonUserSignUpCheck(SignUpUserField.getText(),SignUpPasswordField.getText(),AgeField.getText(), TeleField.getText(),ID_numberField.getText());
+       String errormessage = InputChecker.commonUserSignUpCheck(SignUpUserField.getText(),SignUpPasswordField.getText(), Integer.valueOf(AgeField.getText()), TeleField.getText(),ID_numberField.getText());
 
 
         if(errormessage==null){
@@ -170,8 +181,6 @@ public class LoginController {
             params.add(ID_numberField.getText());
             try{
                 jdbcUtils.updateByPreparedStatement(sql, params);
-
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -115,7 +115,7 @@ public class Movie implements Serializable {
 
     @Override
     public String toString() {
-        return "Magazine{" +
+        return "Movie{" +
                 "id=" + id +
                 ", coverPath=" + coverPath +
                 ", name=" + name +

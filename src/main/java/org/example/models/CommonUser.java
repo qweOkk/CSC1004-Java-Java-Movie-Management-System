@@ -10,7 +10,7 @@ public class CommonUser implements User{
     private StringProperty username;
     private StringProperty password;
     private StringProperty sid;
-    private StringProperty age;
+    private IntegerProperty age;
     private StringProperty tel;
 
     @Override
@@ -36,13 +36,13 @@ public class CommonUser implements User{
         this.password = new SimpleStringProperty(password);
     }
 
-    public CommonUser(Integer id,String username, String password, String age, String tel,String sid) {
+    public CommonUser(Integer id,String username, String password, Integer age, String tel,String sid) {
         this.id = new SimpleIntegerProperty(id);
         this.username = new SimpleStringProperty(username);
         this.password = new SimpleStringProperty(password);
         this.sid = new SimpleStringProperty(sid);
         this.tel = new SimpleStringProperty(tel);
-        this.age = new SimpleStringProperty(age);
+        this.age = new SimpleIntegerProperty(age);
     }
     public int getId(){return id.get();}
     public IntegerProperty idProperty() {
@@ -74,15 +74,15 @@ public class CommonUser implements User{
     public void setPassword(String password) {
         this.password.set(password);
     }
-    public  String getAge() {return age.get();}
+    public Integer getAge() {return age.get();}
     public String getSid() {
         return sid.get();
     }
-    public StringProperty ageProperty() {return age;}
+    public IntegerProperty ageProperty() {return age;}
     public StringProperty sidProperty() {
         return sid;
     }
-    public void setAge(String age) {this.age.set(age);}
+    public void setAge(Integer age) {this.age.set(age);}
     public void setSid(String sid) {
         this.sid.set(sid);
     }

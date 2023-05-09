@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.example.Main;
@@ -29,10 +30,12 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 public class AdminViewController extends Application{
-
+    @FXML
+    public Label commentField;
     @FXML
     private TableColumn<Movie, Integer> movieIdColumn;
 
@@ -159,58 +162,71 @@ public class AdminViewController extends Application{
     private Main mainApp;
 
     @FXML
-    private TableView<Order> fooOrderTableView;
-    @FXML
-    private TableColumn<Order, Integer> fooOrderIdColumn;
-    @FXML
-    private TableColumn<Order, String> fooUserNameColumn;
-    @FXML
-    private TableColumn<Order, String>  fooMagazineNameColumn;
-    @FXML
-    private TableColumn<Order, Integer> fooTotalPriceColumn;
-    @FXML
-    private TableView<MovieClass> fooMagazineClassTableView;
-    @FXML
-    private TableColumn<MovieClass, Integer> fooMagazineClassIdColumn;
-    @FXML
-    private TableColumn<MovieClass, String> fooMagazineClassNameColumn;
-    @FXML
-    private TextField fooMagazineClassIdField;
-    @FXML
-    private TextField fooMagazineClassNameField;
-    @FXML
-    private TextField fooOrderIdField;
-    @FXML
-    private ComboBox<String> fooOrderUsernameBox;
-    @FXML
-    private ComboBox<String> fooOrderMagazineNameBox;
-    @FXML
-    private ChoiceBox<String> fooMonthBox;
-    @FXML
-    private ChoiceBox<String> fooCopiesNumBox;
-    @FXML
-    private TextField fooTotalPriceField;
+    private BorderPane commentPane;
 
+    @FXML
+    private TableView<Comment> commentTableView;
+
+    @FXML
+    private TableColumn<Comment, Integer> commentIdColumn;
+
+    @FXML
+    private TableColumn<Comment,String> commentNameColumn;
+
+    @FXML
+    private TableColumn<Comment, String> commentMovieColumn;
+    @FXML
+    private BorderPane statisticPane;
+
+    @FXML
+    private BorderPane ratingPane;
+
+    @FXML
+    private CategoryAxis xAxis= new CategoryAxis();
+    @FXML
+    private NumberAxis yAxis;
+    @FXML
+    private BarChart<String, Number> movieBarChart;
+    @FXML
+    private TableView<Movie> statisticTableView;
+
+    @FXML
+    private TableColumn<Movie,String> statisticMovieColumn;
+    @FXML
+    private CategoryAxis typexAxis= new CategoryAxis();
+    @FXML
+    private NumberAxis typeyAxis;
+    @FXML
+    private BarChart<String, Number> typeBarChart;
+    @FXML
+    private CategoryAxis agexAxis;
+
+    @FXML
+    private NumberAxis ageyAxis;
+    @FXML
+    private BarChart<String, Number> ageBarChart;
+
+    @FXML
+    private Rectangle commentBorder;
+    @FXML
+    private ImageView commontCover;
+    @FXML
+    private BorderPane movieTypePane;
+
+    @FXML
+    private BorderPane userAgePane;
     private ObservableList<Admin> adminData = FXCollections.observableArrayList();
-    private ObservableList<Movie> magazineData = FXCollections.observableArrayList();
+    private ObservableList<Movie> movieData = FXCollections.observableArrayList();
     private ObservableList<CommonUser> commonUsersData = FXCollections.observableArrayList();
-    private ObservableList<Order> seOrderData = FXCollections.observableArrayList();
-    private ObservableList<Order> fooOrderData = FXCollections.observableArrayList();
-    private ObservableList<MovieClass> fooMagazineClassData = FXCollections.observableArrayList();
-
-    // 各种选项盒子的数据
+    private ObservableList<Comment> commentsData = FXCollections.observableArrayList();
+    private ObservableList<Rate> ratesData = FXCollections.observableArrayList();
     private ObservableList<String> choiceItems = FXCollections.observableArrayList();
-    private ObservableList<String> seMagazineNames = FXCollections.observableArrayList();
-    private ObservableList<String> seMagazineClasses = FXCollections.observableArrayList();
-    private ObservableList<String> seUserNames = FXCollections.observableArrayList();
-    private ObservableList<String> anUserNames = FXCollections.observableArrayList();
-    private ObservableList<String> anMagazineNames = FXCollections.observableArrayList();
-    private ObservableList<String> fooOrderUsernames = FXCollections.observableArrayList();
-    private ObservableList<String> fooOrderMagazineNames = FXCollections.observableArrayList();
 
-    //杂志封面临时文件
     private File imageFile;
 
+    /**
+     * initialize the tables.
+     */
     @FXML
     private void initialize() {
         adminIdColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
@@ -230,22 +246,28 @@ public class AdminViewController extends Application{
         movieTableView.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> updateMovieDetail(newValue)
         );
-
-        /*fooMagazineClassIdColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
-        fooMagazineClassNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        fooMagazineClassTableView.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> updateMovieClassDetail(newValue)
-        );*/
-
+        commentIdColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        commentNameColumn.setCellValueFactory(cellData -> cellData.getValue().usernameProperty());
+        commentMovieColumn.setCellValueFactory(cellDate -> cellDate.getValue().movienameProperty());
+        commentTableView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> updateCommentDetail(newValue)
+        );
+        statisticMovieColumn.setCellValueFactory(cellData ->cellData.getValue().nameProperty());
+        statisticTableView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> updateStatistic(newValue)
+        );
         initAdminTable();
         initCommonUserTable();
         initMovieTable();
-        //initSearchTable();
-        //initStatisticView();
+        initCommentTable();
+        initStatisticView();
         initUserNameLabel();
-        //initMagazineClassTableAndOrderTable();
+        initType();
+        initAge();
     }
-
+    /**
+     * initialize the username table.
+     */
     public void initUserNameLabel() {
         if (Session.getType().equals("commonUser")) {
             userNameLabel.setText(Session.getUsername());
@@ -253,7 +275,9 @@ public class AdminViewController extends Application{
             userNameLabel.setText(Session.getUsername());
         }
     }
-
+    /**
+     * initialize the Admin table.
+     */
     public void initAdminTable() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
@@ -265,10 +289,14 @@ public class AdminViewController extends Application{
             adminData.addAll(admins);
             adminTableView.setItems(adminData);
             adminTableView.getSelectionModel().selectFirst();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    /**
+     * initialize the CommonUser table.
+     */
     private void initCommonUserTable() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
@@ -284,38 +312,192 @@ public class AdminViewController extends Application{
             e.printStackTrace();
         }
     }
+    /**
+     * initialize the Movie table.
+     */
     private void initMovieTable() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
         String sql = "select a.id, a.coverPath, a.`name`, a.director, a.actor, a.intro, b.className from `movie` a, `mClass` b where a.classNumber = b.id;";
         List<Object> params = new ArrayList<>();
         try {
-            List<Movie> magazines = jdbcUtils.findMoreProResult(sql, params, Movie.class);
-            magazineData.clear();
-            magazineData.addAll(magazines);
-            movieTableView.setItems(magazineData);
+            List<Movie> movies = jdbcUtils.findMoreProResult(sql, params, Movie.class);
+            movieData.clear();
+            movieData.addAll(movies);
+            movieTableView.setItems(movieData);
             movieTableView.getSelectionModel().selectFirst();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    private void initBox(String sql, ComboBox<String> box, ObservableList<String> items) {
+    /**
+     * initialize the Comment table.
+     */
+    private void initCommentTable() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
+        String sql = "select * from `comment`;";
         List<Object> params = new ArrayList<>();
         try {
-            items.clear();
-            List<Map<String, Object>> names = jdbcUtils.findModeResult(sql, params);
-            for (Map<String, Object> name : names) {
-                items.add(name.get("name").toString());
+            List<Comment> comments = jdbcUtils.findMoreProResult(sql, params, Comment.class);
+            System.out.println(comments);
+            commentsData.clear();
+            commentsData.addAll(comments);
+            commentTableView.setItems(commentsData);
+            commentTableView.getSelectionModel().selectFirst();
+            commentField.setText(commentTableView.getSelectionModel().getSelectedItem().getComment());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * initialize the rate page of the Statistic page.
+     */
+    private void initStatisticView() {
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        jdbcUtils.getConnection();
+        String sql= " select a.id, a.coverPath, a.`name`, a.director, a.actor, a.intro, b.className from `movie` a, `mClass` b where a.classNumber = b.id;";
+        List<Object> params =new ArrayList<>();
+        try{
+            List<Movie> movies =jdbcUtils.findMoreProResult(sql, params, Movie.class);
+            //System.out.println(movies);
+            movieData.clear();
+            movieData.addAll(movies);
+            statisticTableView.setItems(movieData);
+            statisticTableView.getSelectionModel().selectFirst();
+            String rsql= "select * from `rate`  ;";
+            List<Object> rparams = new ArrayList<>();
+            try {
+                List<Rate> rates =jdbcUtils.findMoreProResult(rsql, rparams, Rate.class);
+                XYChart.Series<String, Number> series = new XYChart.Series<>();
+                series.setName("rate");
+
+                for (Rate rate : rates) {
+
+
+                    if (rate.getmoviename().equals(statisticTableView.getSelectionModel().getSelectedItem().getName())) {
+                        //ratesName.add(rates.get(i).getusername());
+                        series.getData().add(new XYChart.Data<>(rate.getusername(), rate.getRate()));
+                    }
+                }
+                //System.out.println(ratesName);
+                //xAxis.setCategories(ratesName);
+                movieBarChart.getData().clear();
+                movieBarChart.getData().add(series);
+                //System.out.println(movieBarChart.getData());
+                //System.out.println(rates);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            box.setItems(items);
-        } catch (SQLException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * initialize the age page of the Statistic page.
+     */
+    private void initAge() {
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        jdbcUtils.getConnection();
+        String sql = "select * from `commonUser`;";
+        List<Object> params = new ArrayList<>();
+        try {
+            List<CommonUser> commonUsers = jdbcUtils.findMoreProResult(sql, params, CommonUser.class);
+            agexAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(
+                    "0-40", "41-80", "81-120", "121-160",">=161")));
+            String[] as=new String[5];
+            as[0]="0-40";
+            as[1]="41-80";
+            as[2]="81-120";
+            as[3]="121-160";
+            as[4]=">=161";
+            int[] num =new int[10];
+            for(int i=0;i<10;i++){
+                num[i]=0;
+            }
+            for(CommonUser commonUser : commonUsers){
+                if(commonUser.getAge()>=0&&commonUser.getAge()<=40){
+                    num[0]++;
+                }
+                if(commonUser.getAge()>=41&&commonUser.getAge()<=80){
+                    num[1]++;
+                }
+                if(commonUser.getAge()>=81&&commonUser.getAge()<=120){
+                    num[2]++;
+                }
+                if(commonUser.getAge()>=121&&commonUser.getAge()<=160){
+                    num[3]++;
+                }
+                if(commonUser.getAge()>=161){
+                    num[4]++;
+                }
+            }
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            ObservableList<String> className = FXCollections.observableArrayList();
+            series.setName("Age");
+            for(int i=0;i<5;i++){
+                series.getData().add(new XYChart.Data<>(as[i],num[i]));
+            }
+
+            for(int i=0;i<5;i++){
+                System.out.println(num[i]);
+            }
+            ageBarChart.getData().clear();
+            ageBarChart.getData().addAll(series);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * initialize the type page of the Statistic page.
+     */
+    private void initType() {
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        jdbcUtils.getConnection();
+        String sql = "select  a.`name`, b.className from `movie` a, `mClass` b where a.classNumber = b.id;";
+        List<Object> params = new ArrayList<>();
+        try {
+            List<Movie> movies = jdbcUtils.findMoreProResult(sql, params, Movie.class);
+            System.out.println(movies);
+            sql = "select * from `mClass`";
+            List<Object> mcparams = new ArrayList<>();
+            try{
+                List<MovieClass> id = jdbcUtils.findMoreProResult(sql, mcparams, MovieClass.class);
+                int length= id.size(),len = movies.size();
+                int[] num =new int[length];
+                for(int i=0;i<length;i++){
+                    num[i]=0;
+                }
+                for (Movie movie : movies) {
+                    for (int j = 0; j < length; j++) {
+                        if (movie.getClassName().equals(id.get(j).getclassName())) {
+                            num[j]++;
+                            //System.out.println(j);
+                        }
+                    }
+                }
+                XYChart.Series<String, Number> mseries = new XYChart.Series<>();
+                ObservableList<String> className = FXCollections.observableArrayList();
+                mseries.setName("Movie Types");
+                for(int i=0;i<length;i++){
+                    className.add(id.get(i).getclassName());
+                    mseries.getData().add(new XYChart.Data<>(id.get(i).getclassName(),num[i]));
+                }
+                typexAxis.setCategories(className);
+                typeBarChart.getData().clear();
+                typeBarChart.getData().addAll(mseries);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Update the admin page.
+     */
     private void updateAdminDetail(Admin admin) {
         if (admin != null) {
             adminIdField.setText(Integer.toString(admin.getId()));
@@ -323,7 +505,9 @@ public class AdminViewController extends Application{
             adminPasswordField.setText(admin.getPassword());
         }
     }
-
+    /**
+     * Update the CommonUser page.
+     */
     private void updateCommonDetail(CommonUser solo) {
         if (solo != null) {
             commonUserIdField.setText(Integer.toString(solo.getId()));
@@ -331,23 +515,39 @@ public class AdminViewController extends Application{
             commonUserpassField.setText(solo.getPassword());
             commonUserSidField.setText(solo.getSid());
             commonUserTelField.setText(solo.getTel());
-            commonUserAgeField.setText(solo.getAge());
+            commonUserAgeField.setText(String.valueOf(solo.getAge()));
         }
     }
-    private void updateMovieClassDetail(MovieClass solo) {
-        if (solo != null) {
-            fooMagazineClassIdField.setText(Integer.toString(solo.getId()));
-            fooMagazineClassNameField.setText(solo.getName());
-        }
-    }
+    /**
+     * Update the Comment page.
+     */
+    private void updateCommentDetail(Comment solo) {
+        if(solo != null){
+            commentField.setText(commentTableView.getSelectionModel().getSelectedItem().getComment());
+            commontCover.setImage(null);
+            if(!solo.getPicture().equals("non_exist")){
+                File newFile = new File("src/main/resources/org/example/scene/images/" + solo.getPicture());
+                System.out.println(newFile.getAbsoluteFile().toURI());
 
+                commontCover.setImage(new Image(newFile.getAbsoluteFile().toURI().toString()));
+                UIAdjistUtils.adjustImageBorder(commontCover, commentBorder);
+                imageFile = new File("src/main/resources/org/example/scene/images/" + solo.getPicture());
+                System.out.println(imageFile.getAbsolutePath());
+            }
+
+        }
+
+    }
+    /**
+     * Update the Movie page.
+     */
     private void updateMovieDetail(Movie solo) {
         if (solo != null) {
             movieIdField.setText(Integer.toString(solo.getId()));
             movieNameField.setText(solo.getName());
             movieDirectorField.setText(solo.getDirector());
             movieActorField.setText(solo.getActor());
-            //处理ChoiceBox的相关问题
+            //Handle the choice box.
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
             String sql = "select className from `mClass`;";
@@ -376,7 +576,42 @@ public class AdminViewController extends Application{
             System.out.println(imageFile.getAbsolutePath());
         }
     }
+    /**
+     * Update the Rate page of the statistic page.
+     */
+    private void updateStatistic(Movie solo) {
+        if(solo!=null){
+            JdbcUtils jdbcUtils = new JdbcUtils();
+            jdbcUtils.getConnection();
+            String rsql= "select * from `rate`  ;";
+            List<Object> rparams = new ArrayList<>();
+            try {
+                List<Rate> rates =jdbcUtils.findMoreProResult(rsql, rparams, Rate.class);
+                XYChart.Series<String, Number> series = new XYChart.Series<>();
+                series.setName("rate");
 
+                ObservableList<String> ratesName = FXCollections.observableArrayList();
+                ratesName.clear();
+                for(int i=0;i<rates.size();i++){
+                    //System.out.println(rates.get(i));
+
+
+                    if(rates.get(i).getmoviename().equals(statisticTableView.getSelectionModel().getSelectedItem().getName())){
+                        ratesName.add(rates.get(i).getusername());
+                        series.getData().add(new XYChart.Data<>(rates.get(i).getusername(), rates.get(i).getRate()));
+                    }
+                }
+                System.out.println(ratesName);
+                xAxis.getCategories().clear();
+                xAxis.setCategories(ratesName);
+                movieBarChart.getData().clear();
+                movieBarChart.getData().add(series);
+                //System.out.println(rates);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
     @Override
     public void start(Stage primaryStage){
 
@@ -385,36 +620,105 @@ public class AdminViewController extends Application{
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
-    
+
+    /**
+     * Turn to Movie page.
+     */
     @FXML
     void handleToMovie() {
         commonUserPane.setVisible(false);
         adminPane.setVisible(false);
+        commentPane.setVisible(false);
+        statisticPane.setVisible(false);
         initMovieTable();
         moviePane.setVisible(true);
-    }
 
+    }
+    /**
+     * Turn to Statistic page.
+     */
     @FXML
-    void handleToStatistic(ActionEvent event) {
-
+    void handleToStatistic() {
+        commonUserPane.setVisible(false);
+        adminPane.setVisible(false);
+        commentPane.setVisible(false);
+        moviePane.setVisible(false);
+        //initStatisticView();
+        movieTypePane.setVisible(false);
+        userAgePane.setVisible(false);
+        initStatisticView();
+        ratingPane.setVisible(true);
+        statisticPane.setVisible(true);
     }
-
+    /**
+     * Turn to CommonUser page.
+     */
     @FXML
     void handleToCommonUser() {
         moviePane.setVisible(false);
         adminPane.setVisible(false);
+        commentPane.setVisible(false);
+        statisticPane.setVisible(false);
         initCommonUserTable();
         commonUserPane.setVisible(true);
     }
-
+    /**
+     * Turn to Admin page.
+     */
     @FXML
     void handleToAdmin() {
         moviePane.setVisible(false);
         commonUserPane.setVisible(false);
+        commentPane.setVisible(false);
+        statisticPane.setVisible(false);
         initAdminTable();
         adminPane.setVisible(true);
     }
-
+    /**
+     * Turn to Comment page.
+     */
+    @FXML
+    void handleToComment(){
+        moviePane.setVisible(false);
+        commonUserPane.setVisible(false);
+        adminPane.setVisible(false);
+        statisticPane.setVisible(false);
+        initCommentTable();
+        commentPane.setVisible(true);
+    }
+    /**
+     * Turn to Rate page.
+     */
+    @FXML
+    void handleToRate() {
+        movieTypePane.setVisible(false);
+        userAgePane.setVisible(false);
+        initStatisticView();
+        ratingPane.setVisible(true);
+    }
+    /**
+     * Turn to Age page.
+     */
+    @FXML
+    void handleToAge() {
+        movieTypePane.setVisible(false);
+        ratingPane.setVisible(false);
+        initAge();
+        userAgePane.setVisible(true);
+    }
+    /**
+     * Turn to Type page.
+     */
+    @FXML
+    void handleToType() {
+        ratingPane.setVisible(false);
+        userAgePane.setVisible(false);
+        initType();
+        movieTypePane.setVisible(true);
+    }
+    /**
+     * Log out and back to the login page.
+     */
     @FXML
     void handleLogout() {
         try {
@@ -429,18 +733,21 @@ public class AdminViewController extends Application{
             e.printStackTrace();
         }
     }
+    /**
+     * Update the Admin.
+     */
     @FXML
     private void handleSubmitAdmin() {
         Admin oldInfo = adminTableView.getSelectionModel().getSelectedItem();
         String id = adminIdField.getText();
         if (id == null || id.length() == 0) {
-            DialogUtils.tips(mainApp.getPrimaryStage(), "id为空");
+            DialogUtils.tips(mainApp.getPrimaryStage(), "ID should not be empty,");
             return;
         } else {
             try {
                 Integer.parseInt(id);
             } catch (Exception e) {
-                DialogUtils.tips(mainApp.getPrimaryStage(), "id应只含有数字");
+                DialogUtils.tips(mainApp.getPrimaryStage(), "ID should only be numbers!");
                 return;
             }
         }
@@ -456,8 +763,8 @@ public class AdminViewController extends Application{
             params.add(newInfo.getId());
             try {
                 jdbcUtils.updateByPreparedStatement(sql, params);
-                DialogUtils.good(mainApp.getPrimaryStage(), "更新成功");
-                // 更新一下现在在线的用户
+                DialogUtils.good(mainApp.getPrimaryStage(), "Update successfully!");
+                // Update it.
                 if (Session.getId() == newInfo.getId()) {
                     Session.setUsername(newInfo.getUsername());
                     initUserNameLabel();
@@ -470,7 +777,9 @@ public class AdminViewController extends Application{
             DialogUtils.tips(mainApp.getPrimaryStage(), errorMessage);
         }
     }
-
+    /**
+     * Add an Admin.
+     */
     @FXML
     private void handleNewAdmin() {
         String errorMessage = InputChecker.adminSignUpCheck(adminIdField.getText(), adminNameField.getText(), adminPasswordField.getText());
@@ -485,7 +794,7 @@ public class AdminViewController extends Application{
 
             try {
                 jdbcUtils.updateByPreparedStatement(sql, params);
-                DialogUtils.good(mainApp.getPrimaryStage(), "添加成功");
+                DialogUtils.good(mainApp.getPrimaryStage(), "Add successfully!");
                 initAdminTable();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -496,7 +805,7 @@ public class AdminViewController extends Application{
     }
 
     /**
-     * 删除所选项，将该管理员删除
+     * Delete the Admin.
      */
     @FXML
     private void handleDeleteAdmin() {
@@ -510,23 +819,25 @@ public class AdminViewController extends Application{
             params.add(admin.getId());
 
             try {
-                if (DialogUtils.confirm(mainApp.getPrimaryStage(), "您真的要删掉该管理员吗？")) {
+                if (DialogUtils.confirm(mainApp.getPrimaryStage(), "Do you really want to delete this admin?")) {
                     jdbcUtils.updateByPreparedStatement(sql, params);
                     adminTableView.getItems().remove(index);
-                    DialogUtils.good(mainApp.getPrimaryStage(), "管理员删除成功");
+                    DialogUtils.good(mainApp.getPrimaryStage(), "Delete successfully!");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
-
+    /**
+     * Add a CommonUser.
+     */
     @FXML
     private void handleNewCommonUser() {
         String errorMessage = InputChecker.commonUserSignUpCheck(commonUserIdField.getText(),
                 commonUserNameField.getText(),
                 commonUserpassField.getText(),
-                commonUserAgeField.getText(),
+                Integer.valueOf(commonUserAgeField.getText()),
                 commonUserTelField.getText(),
                 commonUserSidField.getText());
         if (errorMessage == null) {
@@ -543,7 +854,7 @@ public class AdminViewController extends Application{
 
             try {
                 jdbcUtils.updateByPreparedStatement(sql, params);
-                DialogUtils.good(mainApp.getPrimaryStage(), "添加成功");
+                DialogUtils.good(mainApp.getPrimaryStage(), "Add successfully!");
                 initCommonUserTable();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -552,26 +863,29 @@ public class AdminViewController extends Application{
             DialogUtils.tips(mainApp.getPrimaryStage(), errorMessage);
         }
     }
+    /**
+     * Update a CommonUser.
+     */
     @FXML
     private void handleUpdateCommonUser() {
         CommonUser oldInfo =  commonUserTableView.getSelectionModel().getSelectedItem();
         String errorMessage;
         String id = commonUserIdField.getText();
         if (id == null || id.length() == 0) {
-            DialogUtils.tips(mainApp.getPrimaryStage(), "id为空");
+            DialogUtils.tips(mainApp.getPrimaryStage(), "ID should not be empty!");
             return;
         } else {
             try {
                 Integer.parseInt(id);
             } catch (Exception e) {
-                DialogUtils.tips(mainApp.getPrimaryStage(), "id应只含有数字");
+                DialogUtils.tips(mainApp.getPrimaryStage(), "ID should be numbers!");
                 return;
             }
         }
         CommonUser newInfo = new CommonUser(Integer.parseInt(commonUserIdField.getText()),
                 commonUserNameField.getText(),
                 commonUserpassField.getText(),
-                commonUserAgeField.getText(),
+                Integer.valueOf(commonUserAgeField.getText()),
                 commonUserTelField.getText(),
                 commonUserSidField.getText());
         errorMessage = InputChecker.commonUserUpdateCheck(oldInfo, newInfo);
@@ -588,7 +902,7 @@ public class AdminViewController extends Application{
             params.add(newInfo.getId());
             try {
                 jdbcUtils.updateByPreparedStatement(sql, params);
-                DialogUtils.good(mainApp.getPrimaryStage(), "更新成功");
+                DialogUtils.good(mainApp.getPrimaryStage(), "Update successfully!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -597,6 +911,9 @@ public class AdminViewController extends Application{
             DialogUtils.tips(mainApp.getPrimaryStage(), errorMessage);
         }
     }
+    /**
+     * Delete the CommonUser.
+     */
     @FXML
     private void handleDeleteCommonUser() {
         int index = commonUserTableView.getSelectionModel().getFocusedIndex();
@@ -605,20 +922,27 @@ public class AdminViewController extends Application{
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
             String sql = "delete from `commonUser` where id = ?";
+            String Osql="delete from `rate` where uid = ?";
+            String Csql="delete from `comment` where uid = ?";
             List<Object> params = new ArrayList<>();
             params.add(commonUser.getId());
 
             try {
-                if (DialogUtils.confirm(mainApp.getPrimaryStage(), "请确认您要删掉这个用户，该用户的订单也会被一并删掉。")){
+                if (DialogUtils.confirm(mainApp.getPrimaryStage(), "Attention!")){
                     jdbcUtils.updateByPreparedStatement(sql, params);
+                    jdbcUtils.updateByPreparedStatement(Osql,params);
+                    jdbcUtils.updateByPreparedStatement(Csql,params);
                     commonUserTableView.getItems().remove(index);
-                    DialogUtils.good(mainApp.getPrimaryStage(), "删除成功");
+                    DialogUtils.good(mainApp.getPrimaryStage(), "Successfully deleted");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
+    /**
+     * Add a Movie.
+     */
     @FXML
     private void handleNewMovie() {
         String errorMessage = InputChecker.movieSignUpCheck(movieIdField.getText(),
@@ -646,12 +970,12 @@ public class AdminViewController extends Application{
                 params.add(movieIntroArea.getText());
                 params.add(id.get("id"));
                 jdbcUtils.updateByPreparedStatement(sql, params);
-                DialogUtils.good(mainApp.getPrimaryStage(), "添加成功");
+                DialogUtils.good(mainApp.getPrimaryStage(), "Add successfully!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-            //复制文件到static文件夹
+            //Copy it to the folder.
             ImageUtils.save(imageFile);
             initMovieTable();
         } else {
@@ -660,35 +984,30 @@ public class AdminViewController extends Application{
     }
 
     /**
-     * 删除杂志数据的同时删除static中的图片文件。
+     * Delete the Movie.
      */
     @FXML
     private void handleDeleteMovie() {
-        // 获取到所选项
         int index = movieTableView.getSelectionModel().getFocusedIndex();
         Movie movie = movieTableView.getSelectionModel().getSelectedItem();
 
-        // 进行删除操作
         if (movie != null) {
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
             String sql = "delete from `movie` where id = ?";
+            String Osql="delete from `rate` where mid = ?";
+            String Csql="delete from `comment` where mid = ?";
             List<Object> params = new ArrayList<>();
             params.add(movie.getId());
 
             try {
-                if (DialogUtils.confirm(mainApp.getPrimaryStage(), "您确认要删掉这个杂志吗？")) {
+                if (DialogUtils.confirm(mainApp.getPrimaryStage(), "Do you really delete the movie?")) {
                     jdbcUtils.updateByPreparedStatement(sql, params);
-                    /*
-                     *==================================================
-                     *                 !!important!!
-                     *     注意这里移动后会进行一个update所以不能用
-                     *     imageFile.getPath()
-                     *==================================================
-                     */
+                    jdbcUtils.updateByPreparedStatement(Osql, params);
+                    jdbcUtils.updateByPreparedStatement(Csql, params);
                     movieTableView.getItems().remove(index);
                     ImageUtils.delete(movie.getCoverPath());
-                    DialogUtils.good(mainApp.getPrimaryStage(), "删除成功");
+                    DialogUtils.good(mainApp.getPrimaryStage(), "Delete successfully!");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -697,7 +1016,7 @@ public class AdminViewController extends Application{
     }
 
     /**
-     * 杂志更新的同时要记得保存新图片和删除老图片
+     * Update the Movie!
      */
     @FXML
     private void handleUpdateMovie() {
@@ -705,19 +1024,19 @@ public class AdminViewController extends Application{
         String errorMessage;
         String foo = movieIdField.getText();
         if (foo == null || foo.length() == 0) {
-            DialogUtils.tips(mainApp.getPrimaryStage(), "id为空");
+            DialogUtils.tips(mainApp.getPrimaryStage(), "ID should not be empty!");
             return;
         } else {
             try {
                 Integer.parseInt(foo);
             } catch (Exception e) {
-                DialogUtils.tips(mainApp.getPrimaryStage(), "id应只含有数字");
+                DialogUtils.tips(mainApp.getPrimaryStage(), "ID should be numbers!");
                 return;
             }
         }
 
         if (imageFile == null) {
-            DialogUtils.tips(mainApp.getPrimaryStage(), "该图片已被使用");
+            DialogUtils.tips(mainApp.getPrimaryStage(), "The image has been used!");
             return;
         }
 
@@ -730,7 +1049,7 @@ public class AdminViewController extends Application{
                 movieClassNameBox.getValue());
         errorMessage = InputChecker.movieUpdateCheck(oldInfo, newInfo);
 
-        //更新数据库
+        //Update the SQL
         if (errorMessage == null) {
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
@@ -751,21 +1070,10 @@ public class AdminViewController extends Application{
                 params.add(id.get("id"));
                 params.add(newInfo.getId());
                 jdbcUtils.updateByPreparedStatement(sql, params);
-                DialogUtils.good(mainApp.getPrimaryStage(), "更新成功");
+                DialogUtils.good(mainApp.getPrimaryStage(), "Update successfully!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
-            /*
-             *==================================================
-             *                 !!important!!
-             *     注意这里为了防止在新图片在static的情况，一定
-             *     要注意顺序，好吧实际上这种情况并不会出现，如果
-             *     不是用户手动向static文件夹中添加图片
-             *==================================================
-             */
-            //添加新图片,删除旧图片.
-            // TODO: 2018/6/30 但是这个问题先放着吧
             if (!oldInfo.getCoverPath().equals(newInfo.getCoverPath())){
                 ImageUtils.save(imageFile);
                 ImageUtils.delete(oldInfo.getCoverPath());
@@ -778,14 +1086,14 @@ public class AdminViewController extends Application{
     }
 
     /**
-     * 向服务器上传图片，涉及到文件操作，比较重要的一个函数
+     * Select the image.
      */
     @FXML
     private void handleSwitchImage() {
         imageFile = ImageUtils.choose(mainApp);
-        // 这里会输出该图片的路径
+        // Print the path.
         System.out.println();
-        // 替换图片
+        // Change the image.
         try {
             if (imageFile != null) {
                 String localUrl = imageFile.toURI().toURL().toString();

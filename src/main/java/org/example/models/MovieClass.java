@@ -5,7 +5,7 @@ import javafx.beans.property.StringProperty;
 
 public class MovieClass {
     private IntegerProperty id;
-    private StringProperty name;
+    private StringProperty className;
 
     public MovieClass() {
     }
@@ -22,23 +22,23 @@ public class MovieClass {
         this.id.set(id);
     }
 
-    public String getName() {
-        return name.get();
+    public String getclassName() {
+        return className.get();
     }
 
-    public StringProperty nameProperty() {
-        return name;
+    public StringProperty classNameProperty() {
+        return className;
     }
 
-    public void setName(String name) {
-        this.name.set(name);
+    public void setclassName(String className) {
+        this.className.set(className);
     }
 
     @Override
     public String toString() {
         return "MovieClass{" +
                 "id=" + id +
-                ", name=" + name +
+                ", className=" + className +
                 '}';
     }
 }

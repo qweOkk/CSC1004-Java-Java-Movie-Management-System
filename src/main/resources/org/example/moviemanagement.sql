@@ -11,7 +11,7 @@
  Target Server Version : 80031 (8.0.31)
  File Encoding         : 65001
 
- Date: 09/05/2023 20:02:38
+ Date: 09/05/2023 21:22:32
 */
 
 SET NAMES utf8mb4;
@@ -49,7 +49,7 @@ CREATE TABLE `comment`  (
   `comment` char(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `picture` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of comment
@@ -62,10 +62,9 @@ INSERT INTO `comment` VALUES (11, 2, 'qwe', 1, 'Harry Potter', 'asfasf', 'non_ex
 INSERT INTO `comment` VALUES (24, 16, 'qwqwe', 1, 'Harry Potter', 'eqeqweqwe', 'non_exist');
 INSERT INTO `comment` VALUES (29, 6, 'qweokk', 1, 'Harry Potter', '', 'non_exist');
 INSERT INTO `comment` VALUES (30, 6, 'qweokk', 1, 'Harry Potter', '', 'non_exist');
-INSERT INTO `comment` VALUES (31, 6, 'qweokk', 1, 'Harry Potter', 'asdasfasfasfa', 'ev10l1002b.jpg');
 INSERT INTO `comment` VALUES (36, 6, 'qweokk', 1, 'Harry Potter', 'asdasd', 'non_exist');
-INSERT INTO `comment` VALUES (37, 6, 'qweokk', 1, 'Harry Potter', 'asdas', 'im090904bg.jpg');
-INSERT INTO `comment` VALUES (39, 6, 'qweokk', 1, 'Harry Potter', 'aa', 'ev05b07a2b.jpg');
+INSERT INTO `comment` VALUES (43, 6, 'qweokk', 3, 's', 'afsas', 'ev05b15.jpg');
+INSERT INTO `comment` VALUES (44, 6, 'qweokk', 3, 's', 'adas', 'Default.jpg');
 
 -- ----------------------------
 -- Table structure for commonuser
@@ -91,7 +90,6 @@ INSERT INTO `commonuser` VALUES (6, 'qweokk', '123', 40, '123', '1233');
 INSERT INTO `commonuser` VALUES (7, 'qweaaa', 'aaaaaa', 11, 'aa', 'aa');
 INSERT INTO `commonuser` VALUES (12, 'aaa1', 'aaa', 123, '123121', 'a');
 INSERT INTO `commonuser` VALUES (16, 'qwqwe', 'qweqw', 12, 'qwe', 'qweq');
-INSERT INTO `commonuser` VALUES (17, 'qweqqq', 'aaa', 12, '123', '121');
 INSERT INTO `commonuser` VALUES (18, 'a', 'aaa', 123, 'aa', 'aaa');
 INSERT INTO `commonuser` VALUES (19, 'qq', 'qqq', 12, '11', '111');
 
@@ -133,9 +131,9 @@ CREATE TABLE `movie`  (
 -- ----------------------------
 -- Records of movie
 -- ----------------------------
-INSERT INTO `movie` VALUES (1, 'Harry.jpg', 'Harry Potter', 'Chris Columbus', 'Daniel Jacob Radcliffe', 'An interesting film.', 1);
-INSERT INTO `movie` VALUES (2, 'im0815_.jpg', 'aa', 'a', 'aaa', 'aaaa', 3);
-INSERT INTO `movie` VALUES (4, 'Titanic.jpg', 'Harry', '1', '1', '111', 4);
+INSERT INTO `movie` VALUES (1, 'iml.jpg', 'Harry Potter', 'Chris Columbus', 'Daniel Jacob Radcliffe', 'An interesting film.', 1);
+INSERT INTO `movie` VALUES (2, 'im0815_.jpg', 'a', 'aa', 'aaa', 'aaaa', 2);
+INSERT INTO `movie` VALUES (3, 'interstellar-4.jpg', 's', 'ss', 'sss', 'ssss', 4);
 
 -- ----------------------------
 -- Table structure for rate
@@ -153,12 +151,10 @@ CREATE TABLE `rate`  (
 -- Records of rate
 -- ----------------------------
 INSERT INTO `rate` VALUES (18, 'a', 1, 'Harry Potter', 3);
-INSERT INTO `rate` VALUES (18, 'a', 2, 'aa', 5);
-INSERT INTO `rate` VALUES (6, 'qweokk', 1, 'Harry Potter', 3);
-INSERT INTO `rate` VALUES (6, 'qweokk', 2, 'aa', 4);
 INSERT INTO `rate` VALUES (2, 'qwe', 1, 'Harry Potter', 4);
-INSERT INTO `rate` VALUES (2, 'qwe', 2, 'aa', 3);
 INSERT INTO `rate` VALUES (19, 'qq', 1, 'Harry Potter', 3);
-INSERT INTO `rate` VALUES (19, 'qq', 2, 'aa', 5);
+INSERT INTO `rate` VALUES (6, 'qweokk', 1, 'Harry Potter', 4);
+INSERT INTO `rate` VALUES (6, 'qweokk', 2, 'a', 2);
+INSERT INTO `rate` VALUES (6, 'qweokk', 3, 's', 5);
 
 SET FOREIGN_KEY_CHECKS = 1;

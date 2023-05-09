@@ -4,22 +4,14 @@ import javafx.stage.FileChooser;
 import org.example.Main;
 
 import java.io.*;
-
+//Adjust the image
 public class ImageUtils {
     public static void save(File image) {
-        /*
-         *==================================================
-         *                 !!important!!
-         *        这里的路径一定要写成下面这个样子的路径
-         *==================================================
-         */
         File imageFileCopy = new File("src/main/resources/org/example/scene/images/", image.getName());
 
-        //创建复制流
         InputStream in = null;
         OutputStream out = null;
 
-        //复制文件
         try {
             if (!imageFileCopy.exists()) {
                 imageFileCopy.createNewFile();
@@ -35,7 +27,7 @@ public class ImageUtils {
             e.printStackTrace();
         } finally {
             try {
-                // 关闭文件输入输出流
+                // close the in & out stream
                 in.close();
                 out.close();
             } catch (Exception e) {
@@ -46,7 +38,6 @@ public class ImageUtils {
 
     public static File choose(Main mainApp) {
         FileChooser fileChooser = new FileChooser();
-        //设置过滤的文件类型
         FileChooser.ExtensionFilter jpgFilter = new FileChooser.ExtensionFilter(
                 "JPG files (*.jpg)", "*.jpg");
         FileChooser.ExtensionFilter jpegFilter = new FileChooser.ExtensionFilter(
@@ -63,6 +54,6 @@ public class ImageUtils {
     public static void delete(String imageName) {
         File waitToDeletaImage = new File("src/main/resources/org/example/scene/images/", imageName);
         waitToDeletaImage.delete();
-        System.out.println("封面" + imageName + "已被删除");
+        System.out.println("Cover" + imageName + "has been deleted!");
     }
 }

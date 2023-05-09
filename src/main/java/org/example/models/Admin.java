@@ -24,7 +24,7 @@ public class Admin implements User, Serializable {
 
     @Override
     public String showType() {
-        return "管理员";
+        return "Admin";
     }
 
     public Admin() {

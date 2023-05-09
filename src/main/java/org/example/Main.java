@@ -21,17 +21,19 @@ public class Main extends Application{
         this.primaryStage.setTitle("Movie Management");
         showLoginView();
     }
+    /**
+     * show the loginView page.
+     */
     public void showLoginView() {
         try {
-            // 载入登录页面
+            // Load the login page.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("scene/Login.fxml"));
             Parent root = loader.load();
             LoginController loginController = loader.getController();
+            primaryStage.setResizable(false);
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
-
-            // 传递主函数
             System.out.println(loginController);
             loginController.setMainApp(this);
         } catch (IOException e) {

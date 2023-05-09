@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -25,7 +26,11 @@
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane fx:id="subscriptedPane" prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <ImageView fitHeight="730.0" fitWidth="1156.0">
+               <image>
+                  <Image url="@images/systemUse/20230509211456.png" />
+               </image>
+            </ImageView>
             <BorderPane fx:id="moviePane" prefHeight="200.0" prefWidth="200.0">
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -60,7 +65,7 @@
                               </VBox>
                               <Pane prefHeight="531.0" prefWidth="499.0">
                                  <children>
-                                    <GridPane prefHeight="339.0" prefWidth="503.0">
+                                    <GridPane prefHeight="327.0" prefWidth="503.0">
                                        <children>
                                           <Label prefHeight="61.0" prefWidth="46.0" text="No.:">
                                              <font>
@@ -117,7 +122,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="movieContentLabel" alignment="TOP_LEFT" prefHeight="222.0" prefWidth="274.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="movieContentLabel" alignment="TOP_LEFT" prefHeight="109.0" prefWidth="274.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -136,12 +141,30 @@
                                           <RowConstraints maxHeight="441.0" minHeight="0.0" prefHeight="182.66665649414062" valignment="TOP" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <TextArea fx:id="movieComArea" layoutX="1.0" layoutY="339.0" prefHeight="202.0" prefWidth="488.0" />
-                                    <Button layoutX="374.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleComment" prefHeight="36.0" prefWidth="111.0" text="Comment">
+                                    <TextArea fx:id="movieComArea" layoutX="6.0" layoutY="277.0" prefHeight="151.0" prefWidth="488.0" />
+                                    <Button layoutX="374.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleComment" prefHeight="36.0" prefWidth="111.0" text="Comment">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
+                                    <VBox alignment="TOP_RIGHT" layoutX="6.0" layoutY="448.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="208.0">
+                                       <children>
+                                          <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="206.0">
+                                             <children>
+                                                <Rectangle fx:id="commentBorder" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" stroke="BLACK" strokeType="INSIDE" width="153.0" />
+                                                <ImageView fx:id="commontCover" fitHeight="108.0" fitWidth="145.0" pickOnBounds="true" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="30.0" />
+                                             </VBox.margin>
+                                          </StackPane>
+                                          <Button fx:id="imageButton" mnemonicParsing="false" onAction="#handleSwitchImage" prefHeight="25.0" prefWidth="59.0" text="Select">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" right="30.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
                                  </children>
                                  <HBox.margin>
                                     <Insets top="65.0" />
@@ -193,11 +216,6 @@
                                     <Font size="21.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="38.0" prefWidth="82.0" text="Address">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
                               <Label prefHeight="38.0" prefWidth="116.0" text="ID_number">
                                  <font>
                                     <Font size="21.0" />
@@ -215,12 +233,7 @@
                               <TextField fx:id="passwordField" prefHeight="38.0" prefWidth="256.0" />
                               <TextField fx:id="AgeField" prefHeight="38.0" prefWidth="256.0" />
                               <TextField fx:id="telField" prefHeight="38.0" prefWidth="256.0" />
-                              <TextField fx:id="addrField" prefHeight="38.0" prefWidth="256.0" />
                               <TextField fx:id="sidField" prefHeight="38.0" prefWidth="256.0" />
-                              <Button fx:id="changeButton" mnemonicParsing="false" onAction="#handleChange" prefHeight="38.0" prefWidth="92.0" text="Change">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font></Button>
                            </children>
                            <HBox.margin>
                               <Insets />

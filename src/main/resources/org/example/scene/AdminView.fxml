@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.AdminViewController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.AdminViewController">
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
+            <BorderPane fx:id="moviePane1" prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <HBox maxHeight="Infinity" maxWidth="Infinity" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView cache="true" cacheHint="QUALITY" fitHeight="703.0" fitWidth="1154.0" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@images/systemUse/20230509211444.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </top>
+            </BorderPane>
             <BorderPane fx:id="moviePane" prefHeight="200.0" prefWidth="200.0">
                <left>
                   <TableView fx:id="movieTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -224,6 +251,187 @@
                      </children>
                   </VBox>
                </center></BorderPane>
+            <BorderPane fx:id="commentPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <left>
+                  <TableView fx:id="commentTableView" prefHeight="677.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+                     <columns>
+                        <TableColumn fx:id="commentIdColumn" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="commentNameColumn" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="commentMovieColumn" prefWidth="75.0" text="Movie" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </left>
+               <center>
+                  <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="127.0" prefWidth="795.0">
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label alignment="TOP_LEFT" prefHeight="137.0" prefWidth="107.0" text="Comment">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="commentField" alignment="TOP_LEFT" prefHeight="127.0" prefWidth="401.0" style="-fx-background-color: white;" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <VBox alignment="TOP_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="797.0">
+                           <children>
+                              <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="797.0">
+                                 <children>
+                                    <Rectangle fx:id="commentBorder" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="298.0" stroke="BLACK" strokeType="INSIDE" width="492.0" />
+                                    <ImageView fx:id="commontCover" fitHeight="293.0" fitWidth="476.0" pickOnBounds="true" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="30.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+            <BorderPane fx:id="statisticPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <right>
+                  <VBox prefHeight="699.0" prefWidth="178.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets right="50.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleToRate" prefHeight="49.0" prefWidth="168.0" text="Ratings">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleToType" prefHeight="49.0" prefWidth="169.0" text="Movie Type">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleToAge" prefHeight="49.0" prefWidth="169.0" text="Users' Ages">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </right>
+               <center>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <BorderPane fx:id="ratingPane" prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <VBox alignment="TOP_RIGHT" prefHeight="699.0" prefWidth="759.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <BarChart fx:id="movieBarChart" prefHeight="417.0" prefWidth="854.0">
+                                       <xAxis>
+                                          <CategoryAxis autoRanging="false" side="BOTTOM" tickLabelFill="#a63e3e" tickLabelRotation="-64.0" fx:id="xAxis">
+                                             <tickLabelFont>
+                                                <Font size="12.0" />
+                                             </tickLabelFont></CategoryAxis>
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="yAxis" side="LEFT" tickLabelFill="#a63e3e" tickLabelGap="1.0" tickUnit="1.0" upperBound="5.0">
+                                             <tickLabelFont>
+                                                <Font size="12.0" />
+                                             </tickLabelFont></NumberAxis>
+                                       </yAxis>
+                                       <VBox.margin>
+                                          <Insets top="150.0" />
+                                       </VBox.margin>
+                                    </BarChart>
+                                 </children>
+                                 <padding>
+                                    <Insets left="100.0" right="100.0" />
+                                 </padding>
+                              </VBox>
+                           </center>
+                           <left>
+                              <TableView fx:id="statisticTableView" prefHeight="699.0" prefWidth="225.0" BorderPane.alignment="CENTER">
+                                 <columns>
+                                    <TableColumn fx:id="statisticMovieColumn" prefWidth="75.0" text="Movie" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </left>
+                        </BorderPane>
+                        <BorderPane fx:id="movieTypePane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                           <center>
+                              <VBox alignment="TOP_RIGHT" prefHeight="699.0" prefWidth="759.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <BarChart fx:id="typeBarChart" prefHeight="417.0" prefWidth="854.0">
+                                       <xAxis>
+                                          <CategoryAxis fx:id="typexAxis" autoRanging="false" side="BOTTOM" tickLabelFill="#a63e3e" tickLabelRotation="-64.0">
+                                             <tickLabelFont>
+                                                <Font size="12.0" />
+                                             </tickLabelFont></CategoryAxis>
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="typeyAxis" side="LEFT" tickLabelFill="#a63e3e" tickLabelGap="1.0" tickUnit="1.0" upperBound="5.0">
+                                             <tickLabelFont>
+                                                <Font size="12.0" />
+                                             </tickLabelFont></NumberAxis>
+                                       </yAxis>
+                                       <VBox.margin>
+                                          <Insets top="150.0" />
+                                       </VBox.margin>
+                                    </BarChart>
+                                 </children>
+                                 <padding>
+                                    <Insets left="100.0" right="100.0" />
+                                 </padding>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                        <BorderPane fx:id="userAgePane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                           <center>
+                              <VBox alignment="TOP_RIGHT" prefHeight="699.0" prefWidth="759.0" styleClass="mainHBox" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <BarChart fx:id="ageBarChart" prefHeight="417.0" prefWidth="854.0">
+                                       <xAxis>
+                                          <CategoryAxis fx:id="agexAxis" side="BOTTOM" tickLabelFill="#a63e3e" tickLabelRotation="-64.0">
+                                             <tickLabelFont>
+                                                <Font size="12.0" />
+                                             </tickLabelFont></CategoryAxis>
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="ageyAxis" side="LEFT" tickLabelFill="#a63e3e" tickLabelGap="1.0" tickUnit="1.0" upperBound="5.0">
+                                             <tickLabelFont>
+                                                <Font size="12.0" />
+                                             </tickLabelFont></NumberAxis>
+                                       </yAxis>
+                                    </BarChart>
+                                 </children>
+                                 <padding>
+                                    <Insets left="100.0" right="100.0" />
+                                 </padding>
+                                 <BorderPane.margin>
+                                    <Insets top="150.0" />
+                                 </BorderPane.margin>
+                              </VBox>
+                           </center>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </BorderPane>
+                     </children>
+                  </StackPane>
+               </center>
+            </BorderPane>
          </children>
       </StackPane>
    </center>
@@ -231,17 +439,22 @@
       <AnchorPane prefHeight="34.0" prefWidth="1149.0" styleClass="topBar" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" layoutY="13.0" AnchorPane.leftAnchor="0.0" />
-            <HBox alignment="CENTER_RIGHT" layoutX="628.0" layoutY="5.0" prefHeight="32.0" prefWidth="671.0" spacing="14.0" AnchorPane.rightAnchor="7.0">
+            <HBox alignment="CENTER_RIGHT" layoutX="628.0" layoutY="5.0" prefHeight="32.0" prefWidth="787.0" spacing="14.0" AnchorPane.rightAnchor="7.0">
                <children>
-                  <Label fx:id="userNameLabel" text="Username">
+                  <Label fx:id="userNameLabel" prefHeight="32.0" prefWidth="121.0" text="Username">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="toMovieButton" onMouseClicked="#handleToMovie" text="Movies">
+                  <Label fx:id="toMovieButton" onMouseClicked="#handleToMovie" prefHeight="32.0" prefWidth="88.0" text="Movies">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="toStatisticButton" onMouseClicked="#handleToStatistic" text="Statistics">
+                  <Label fx:id="toCommentButton" onMouseClicked="#handleToComment" prefHeight="32.0" prefWidth="128.0" text="Comments">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="toStatisticButton" onMouseClicked="#handleToStatistic" prefHeight="32.0" prefWidth="103.0" text="Statistics">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
@@ -249,7 +462,7 @@
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="toAdminButton" onMouseClicked="#handleToAdmin" text="Admins">
+                  <Label fx:id="toAdminButton" onMouseClicked="#handleToAdmin" prefHeight="32.0" prefWidth="91.0" text="Admins">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
@@ -263,7 +476,7 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="45.0" layoutY="5.0" prefHeight="32.0" prefWidth="263.0" text="Movie Management">
+            <Label layoutX="13.0" layoutY="5.0" prefHeight="32.0" prefWidth="237.0" text="Movie Management">
                <font>
                   <Font size="24.0" />
                </font>

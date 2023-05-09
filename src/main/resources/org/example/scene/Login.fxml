@@ -8,17 +8,22 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="634.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scene.LoginController">
    <children>
-      <Pane fx:id="Login_pane" cache="true" layoutY="1.0" prefHeight="651.0" prefWidth="1079.0" style="-fx-background-image: images\systemUse\loginCover.jpgimages\systemUse\loginCover.jpg;">
+      <Pane fx:id="Login_pane" cache="true" prefHeight="651.0" prefWidth="1091.0" style="-fx-background-image: images\systemUse\loginCover.jpgimages\systemUse\loginCover.jpg;">
          <children>
-            <ImageView fitHeight="709.0" fitWidth="1118.0" layoutY="-9.0">
-               <image>
-                  <Image url="@images/systemUse/loginCover.jpg" />
-               </image>
-            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="700.0" fitWidth="1196.0" opacity="0.69" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@images/systemUse/loginCover.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
             <Button fx:id="SignUp" alignment="CENTER" layoutX="602.0" layoutY="440.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="141.0" text="Sign Up" textFill="#babe3a">
                <font>
                   <Font size="24.0" />
@@ -86,7 +91,7 @@
             <PasswordField fx:id="SignUpPasswordField" layoutX="141.0" layoutY="174.0" prefHeight="40.0" prefWidth="242.0" />
             <Button fx:id="back" layoutX="235.0" layoutY="446.0" mnemonicParsing="false" onAction="#Back_up" prefHeight="36.0" prefWidth="85.0" text="Back" />
             <Button fx:id="SignUp" layoutX="72.0" layoutY="446.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="36.0" prefWidth="141.0" text="Sign up" />
-            <Label layoutX="21.0" layoutY="236.0" prefHeight="48.0" prefWidth="113.0" text="Age">
+            <Label layoutX="5.0" layoutY="236.0" prefHeight="48.0" prefWidth="134.0" text="Age(0~200)">
                <font>
                   <Font size="22.0" />
                </font>

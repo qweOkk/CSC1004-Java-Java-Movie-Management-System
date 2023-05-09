@@ -25,6 +25,7 @@ import org.example.Main;
 import org.example.Session;
 import org.example.models.CommonUser;
 import org.example.models.Movie;
+import org.example.utils.ImageUtils;
 import org.example.utils.JdbcUtils;
 import org.example.utils.UIAdjistUtils;
 import org.controlsfx.control.Rating;
@@ -32,6 +33,7 @@ import org.controlsfx.control.Rating;
 import javax.xml.bind.annotation.XmlMimeType;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +44,6 @@ public class CommonUserViewController extends Application {
     @FXML
     private TextField usernameField;
 
-    @FXML
-    private BorderPane subscriptedPane;
 
     @FXML
     private TableColumn<Movie, Integer> movieIdColumn;
@@ -66,8 +66,6 @@ public class CommonUserViewController extends Application {
     @FXML
     private Label toMovieButton;
 
-    @FXML
-    private Button changeButton;
 
     @FXML
     private ImageView movieCover;
@@ -113,7 +111,18 @@ public class CommonUserViewController extends Application {
     private Label movieIdLabel;
     @FXML
     private Rating movieRating;
+    @FXML
+    private Rectangle commentBorder;
+    @FXML
+    private ImageView commontCover;
+    @FXML
+    private Button imageButton;
     private ObservableList<Movie> moviesData = FXCollections.observableArrayList();
+    private File imageFile;
+
+    /**
+     * Initialize the tables in CommonUSer page.
+     */
     @FXML
     private void initialize() {
         movieIdColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
@@ -125,15 +134,20 @@ public class CommonUserViewController extends Application {
         movieTableView.getSelectionModel().selectFirst();
         initUserNameLabel();
     }
-
+    /**
+     * Initialize the UserName table.
+     */
     public void initUserNameLabel() {
         if (Session.getType().equals("commonUser")) {
             userNameLabel.setText(Session.getUsername());
         }
         else if (Session.getType().equals("admin")) {
-            userNameLabel.setText("尊贵的管理员" + Session.getUsername() + "先生");
+            userNameLabel.setText("Admin" + Session.getUsername());
         }
     }
+    /**
+     * Initialize the Movie table.
+     */
     public void initTable() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
@@ -147,6 +161,9 @@ public class CommonUserViewController extends Application {
             e.printStackTrace();
         }
     }
+    /**
+     * Update the Movie Info.
+     */
     public void updateDetail(Movie solo) {
         solo = movieTableView.getSelectionModel().getSelectedItem();
         movieIdLabel.setText("" + solo.getId());
@@ -156,12 +173,15 @@ public class CommonUserViewController extends Application {
         movieContentLabel.setText(solo.getIntro());
         movieTypeLabel.setText(solo.getClassName());
         movieComArea.clear();
-        movieRating.setRating(5);
+        movieRating.setRating(0);
         File newFile = new File("src/main/resources/org/example/scene/images/" + solo.getCoverPath());
         //System.out.println(newFile.getAbsoluteFile().toURI());
         movieCover.setImage(new Image(newFile.getAbsoluteFile().toURI().toString()));
         UIAdjistUtils.adjustImageBorder(movieCover, imageBorder);
     }
+    /**
+     * Initialize the User's Info.
+     */
     public void initPersonInfoPane() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         jdbcUtils.getConnection();
@@ -171,11 +191,9 @@ public class CommonUserViewController extends Application {
 
         try {
             CommonUser userNow = jdbcUtils.findSimpleProResult(sql, params, CommonUser.class);
-
-            // 设置显示对应的原始数据
             usernameField.setText(userNow.getUsername());
             passwordField.setText(userNow.getPassword());
-            AgeField.setText(userNow.getAge());
+            AgeField.setText(String.valueOf(userNow.getAge()));
             sidField.setText(userNow.getSid());
             telField.setText(userNow.getTel());
 
@@ -188,29 +206,27 @@ public class CommonUserViewController extends Application {
         public void start(Stage primaryStage){
 
         }
-
         public void setMainApp(Main mainApp) {this.mainApp = mainApp;
         }
-
-    public void handleChange(ActionEvent actionEvent) {
-    }
-
-    public void handleNameOrderPie(ActionEvent actionEvent) {
-    }
-
+    /**
+     * Turn to Movie Page.
+     */
     public void handleToMovie() {
-        //subscriptedPane.setVisible(false);
         personInfoPane.setVisible(false);
         moviePane.setVisible(true);
     }
-
+    /**
+     * Turn to CommonUser Page.
+     */
     public void handleToCommonUser() {
         moviePane.setVisible(false);
-        //subscriptedPane.setVisible(false);
         personInfoPane.setVisible(true);
         initPersonInfoPane();
     }
-
+    /**
+     * Turn to Log In Page.
+     */
+    @FXML
     public void handleLogout(MouseEvent mouseEvent) {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -224,7 +240,9 @@ public class CommonUserViewController extends Application {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Rate the Movie.
+     */
     @FXML
     public void handleRate() {
 
@@ -234,11 +252,30 @@ public class CommonUserViewController extends Application {
         List<Object> Uparams = new ArrayList<>();
         Uparams.add(Session.getUsername());
         try {
+
             CommonUser userNow = jdbcUtils.findSimpleProResult(Usql, Uparams, CommonUser.class);
-            String sql ="insert into `rate`(uid,mid,rate)"+"values(?,?,?)";
+            String Oldsql="select * from `rate` where uid = ? and mid = ?";
+            List<Object> Oparams =new ArrayList<>();
+            Oparams.add(userNow.getId());
+            Oparams.add(movieTableView.getSelectionModel().getSelectedItem().getId());
+            if(jdbcUtils.findSimpleResult(Oldsql, Oparams).toString() != "{}"){
+                //System.out.println(jdbcUtils.findSimpleResult(Oldsql,Oparams));
+                String Osql="delete from `rate` where uid = ? and mid = ?";
+                //System.out.println(Oparams);
+                try{
+                    jdbcUtils.updateByPreparedStatement(Osql,Oparams);
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
+            }
+
+            String sql ="insert into `rate`(uid,username,mid,moviename,rate)"+"values(?,?,?,?,?)";
             List<Object> params=new ArrayList<>();
             params.add(userNow.getId());
+            params.add(userNow.getUsername());
             params.add(movieTableView.getSelectionModel().getSelectedItem().getId());
+            params.add(movieTableView.getSelectionModel().getSelectedItem().getName());
             params.add((int)(movieRating.getRating()));
             try{
                 jdbcUtils.updateByPreparedStatement(sql,params);
@@ -253,6 +290,9 @@ public class CommonUserViewController extends Application {
 
 
     }
+    /**
+     * Comment the Movie.
+     */
     @FXML
     public void handleComment(ActionEvent actionEvent) {
         JdbcUtils jdbcUtils=new JdbcUtils();
@@ -262,21 +302,49 @@ public class CommonUserViewController extends Application {
         Uparams.add(Session.getUsername());
         try {
             CommonUser userNow = jdbcUtils.findSimpleProResult(Usql, Uparams, CommonUser.class);
-            String sql ="insert into `order`(uid,mid,comment)"+"values(?,?,?)";
+            String sql ="insert into `comment`(uid,username,mid,moviename,comment,picture)"+"values(?,?,?,?,?,?)";
             List<Object> params=new ArrayList<>();
             params.add(userNow.getId());
+            params.add(userNow.getUsername());
             params.add(movieTableView.getSelectionModel().getSelectedItem().getId());
+            params.add(movieTableView.getSelectionModel().getSelectedItem().getName());
             params.add((movieComArea.getText()));
+            if(imageFile!=null)
+                params.add(imageFile.getName());
+            else {
+                params.add("non_exist");
+            }
             movieComArea.clear();
+            commontCover.setImage(null);
             try{
                 jdbcUtils.updateByPreparedStatement(sql,params);
             }catch (SQLException e){
                 e.printStackTrace();
             }
+            if(imageFile!=null)
+                ImageUtils.save(imageFile);
             //System.out.println(params);
         }
         catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+    /**
+     * Select the image.
+     */
+    @FXML
+    private void handleSwitchImage() {
+        imageFile = ImageUtils.choose(mainApp);
+        // Print the path.
+        System.out.println();
+        // Change the image.
+        try {
+            if (imageFile != null) {
+                String localUrl = imageFile.toURI().toURL().toString();
+                commontCover.setImage(new Image(localUrl, true));
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
         }
     }
 }
